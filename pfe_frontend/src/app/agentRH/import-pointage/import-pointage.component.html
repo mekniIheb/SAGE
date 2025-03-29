@@ -1,0 +1,72 @@
+<div class="container-fluid page-body-wrapper">
+  <app-horizontal-menu-agent-rh></app-horizontal-menu-agent-rh>
+  <app-vertical-menu-agent-rh></app-vertical-menu-agent-rh>
+
+  <div class="main-panel">
+    <div class="content-wrapper">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Importation des pointages</h4>
+            <p class="card-description">Ajouter les pointages des employers du société au système informatique.</p>
+
+            <!-- Alert Message -->
+            <div *ngIf="message" class="alert_container">
+              <div [ngClass]="{'alert_success': message === 'success', 'alert_error': message !== 'success'}"
+                   class="alert spacer" role="alert">
+                <p class="alert_text">{{ getMessageText() }}</p>
+              </div>
+            </div>
+            <div *ngIf="loading" class="lds-spinner">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+<!--            &lt;!&ndash; Loader &ndash;&gt;
+            <div  class="loading-spinner">
+              &lt;!&ndash; Loader design (can be customized) &ndash;&gt;
+              <p>Chargement en cours...</p>
+            </div>-->
+            <!-- File Upload Form -->
+            <form [formGroup]="importForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label>Fichier des pointages des employers</label>
+
+                <!-- Hidden File Input -->
+                <input type="file" formControlName="file" class="file-upload-default" style="display: none;" #fileInput
+                       required (change)="onFileChange($event)">
+
+                <div class="input-group col-xs-12">
+                  <!-- Text input displaying file name -->
+                  <input type="text" class="form-control file-upload-info" readonly placeholder="Importer le fichier..."
+                         [value]="fileName || ''">
+                  <span class="input-group-append">
+                    <!-- Custom Import Button to trigger the hidden file input -->
+                    <button type="button" class="file-upload-browse btn" style="background:#0b2e13; color:white"
+                            (click)="fileInput.click()">Importer</button>
+                  </span>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-icon-text mt-4" style="background:#0b2e13; color:white"
+                        [disabled]="!importForm.valid">
+                  <i class="mdi mdi-upload btn-icon-prepend"></i> Sauvegarder
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

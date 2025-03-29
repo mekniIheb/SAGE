@@ -1,0 +1,41 @@
+.modal {
+  z-index: 1050; /* Ensure modal is on top of other content */
+}
+
+.modal-content {
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.modal-header {
+  border-bottom: 1px solid #dee2e6; /* Bottom border */
+  background-color: #f8f9fa; /* Light background */
+}
+
+.modal-title {
+  font-weight: bold; /* Bold title */
+  color: #343a40; /* Darker title color */
+}
+
+.modal-body {
+  color: #495057; /* Slightly muted text color */
+}
+
+.modal-footer {
+  border-top: 1px solid #dee2e6; /* Top border */
+}
+
+/* Optional: Button styles */
+.btn-secondary {
+  background-color: #6c757d; /* Bootstrap secondary color */
+  border-color: #6c757d; /* Match border with background */
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Bootstrap danger color */
+  border-color: #dc3545; /* Match border with background */
+}
+
+.btn:hover {
+  opacity: 0.9; /* Slightly darker on hover */
+}

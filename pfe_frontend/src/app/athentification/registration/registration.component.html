@@ -1,0 +1,75 @@
+<body>
+<div class="wrapper" style="background-image: url('assets/img/2016.jpg');">
+  <div class="inner">
+    <div class="image-holder">
+      <img src="assets/img/Citroen-e-c3-you-sieges.jpg" alt="">
+    </div>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <h3>Formulaire d'Inscription</h3>
+      <div class="form-wrapper">
+        <input type="number" placeholder="Matricule" formControlName="matricule"
+               [ngClass]="{ 'is-invalid': matricule?.invalid && matricule?.touched }"
+               class="form-control" required>
+        <i class="zmdi zmdi-account"></i>
+      </div>
+      <div *ngIf="matricule?.invalid && matricule?.touched" class="invalid-feedback">
+        <span *ngIf="matricule?.errors?.['required']">Le matricule est obligatoire.</span>
+        <span *ngIf="matricule?.errors?.['min']">Le matricule doit être un nombre positif.</span>
+      </div>
+      <div class="form-wrapper">
+        <input type="text" placeholder="Email Address"
+               formControlName="email"
+               [ngClass]="{ 'is-invalid': email?.invalid && email?.touched }"
+               class="form-control">
+        <i class="zmdi zmdi-email"></i>
+      </div>
+      <small>(N'est pas obligatoire)</small>
+      <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+        <span *ngIf="email?.errors?.['email']">Veuillez entrer une adresse email valide.</span>
+      </div>
+      <div class="form-wrapper">
+        <select formControlName="role" [ngClass]="{ 'is-invalid': role?.invalid && role?.touched }"
+                class="form-control" required>
+          <option value="" disabled selected>Sélectionnez le type de personne</option>
+          <option value="Agent RH">Agent RH</option>
+          <option value="Chef d'équipe">Chef d'équipe</option>
+          <option value="Manager">Manager</option>
+          <option value="RH">RH</option>
+          <option value="Utilisateur">Utilisateur</option>
+        </select>
+        <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+      </div>
+      <div *ngIf="role?.invalid && role?.touched" class="invalid-feedback">
+        <span>Veuillez sélectionner un rôle.</span>
+      </div>
+      <div class="form-wrapper">
+        <input type="password" placeholder="Password" formControlName="password"
+               [ngClass]="{ 'is-invalid': password?.invalid && password?.touched }" class="form-control" required>
+        <i class="zmdi zmdi-lock"></i>
+      </div>
+
+      <!-- Confirm Password input -->
+      <div class="form-wrapper">
+        <input type="password" placeholder="Confirm Password" formControlName="confirmPassword"
+               [ngClass]="{ 'is-invalid': confirmPassword?.invalid && confirmPassword?.touched || signupForm.errors?.['passwordsMismatch'] }"
+               class="form-control" required>
+        <i class="zmdi zmdi-lock"></i>
+      </div>
+      <div *ngIf="signupForm.errors?.['passwordsMismatch'] && confirmPassword?.touched" class="invalid-feedback">
+        <span>Les mots de passe ne correspondent pas.</span>
+      </div>
+      <div *ngIf="errorMessage" class="alert_container">
+        <div class="alert alert_error spacer" role="alert">
+          <p class="alert_text"><strong>Désolé !</strong> {{ errorMessage }}</p>
+        </div>
+      </div>
+      <button>Register
+        <i class="zmdi zmdi-arrow-right"></i>
+      </button>
+      <p class="login-wrapper-footer-text">Vous avez déjà un compte ? <a routerLink="/login" class="text-reset"><b>Connectez-vous
+        ici</b></a></p>
+
+    </form>
+  </div>
+</div>
+</body>

@@ -1,0 +1,39 @@
+<body>
+<div class="wrapper" style="background-image: url('assets/img/2016.jpg');">
+  <div class="inner">
+    <div class="image-holder">
+      <img src="assets/img/Citroen-e-c3-you-sieges.jpg" alt="">
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h3>Authentification</h3>
+      <div class="form-wrapper">
+        <input type="number" placeholder="Matricule" formControlName="matricule"
+               [ngClass]="{ 'is-invalid': matricule?.invalid && matricule?.touched }"
+               class="form-control" required>
+        <i class="zmdi zmdi-account"></i>
+      </div>
+      <div *ngIf="matricule?.invalid && matricule?.touched" class="invalid-feedback">
+        <span *ngIf="matricule?.errors?.['required']">Le matricule est obligatoire.</span>
+        <span *ngIf="matricule?.errors?.['min']">Le matricule doit être un nombre positif.</span>
+      </div>
+
+      <div class="form-wrapper">
+        <input type="password" placeholder="Password" formControlName="password"
+               [ngClass]="{ 'is-invalid': password?.invalid && password?.touched }" class="form-control" required>
+        <i class="zmdi zmdi-lock"></i>
+      </div>
+
+      <div *ngIf="errorMessage" class="alert_container">
+        <div class="alert alert_error spacer" role="alert">
+          <p class="alert_text"><strong>Désolé !</strong> {{ errorMessage }}</p>
+        </div>
+      </div>
+      <button>Se connecter
+        <i class="zmdi zmdi-arrow-right"></i>
+      </button>
+      <p class="login-wrapper-footer-text">Vous n'avez pas de compte ? <a routerLink="/signup" class="text-reset"><b>Inscrivez-vous içi</b></a></p>
+
+    </form>
+  </div>
+</div>
+</body>

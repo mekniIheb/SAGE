@@ -1,0 +1,81 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <!-- Profile Section -->
+    <li>
+
+    </li>
+    <br>
+    <br>
+    <br>
+    <li class="nav-item nav-profile">
+      <a routerLink="/home-rh" class="nav-link">
+        <div class="nav-profile-image">
+          <img src="assets/img/user.png" alt="Profile Image" />
+
+        </div>
+        <div class="nav-profile-text d-flex flex-column">
+          <!-- Angular interpolation for dynamic content -->
+          <span class="font-weight-bold m-xl-0 text-black " style="font-size: 1rem">{{userName}}</span>
+          <span class="text-secondary text-small">{{userType}}</span>
+        </div>
+        <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+      </a>
+    </li>
+
+    <!-- Accueil Link -->
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/home-rh">
+        <span class="menu-title">Accueil</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse"  href="#pointage" aria-expanded="false" aria-controls="pointage">
+        <span class="menu-title">Importation</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-upload menu-icon"></i>
+      </a>
+      <div class="collapse" id="pointage">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/import-pointage">Pointage</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- Présence Section -->
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#presence" aria-expanded="false" aria-controls="presence">
+        <span class="menu-title">Présence</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-account-check menu-icon"></i>
+      </a>
+      <div class="collapse" id="presence">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/choisir-date">Vérifier</a>
+            <a class="nav-link" routerLink="/consult-effectif">Suivi d'effectif</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- Remplacent Section -->
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#remplacent" aria-expanded="false" aria-controls="remplacent">
+        <span class="menu-title">Remplacent</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-account-multiple menu-icon"></i>
+      </a>
+      <div class="collapse" id="remplacent">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/consult-remplacent">Consulter</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>

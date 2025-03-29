@@ -1,0 +1,68 @@
+<div class="container-scroller">
+  <app-horizontal-menu-agent-rh></app-horizontal-menu-agent-rh>
+  <div class="container-fluid page-body-wrapper">
+    <app-vertical-menu-agent-rh></app-vertical-menu-agent-rh>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Consulter l'effectif Present</h4>
+              <p class="card-description">Consulter l'effectif présent des employés de la société dans notre système informatique.</p>
+              <table class="table table-borderless">
+                <thead class="table-success">
+                <tr>
+                  <th>Date</th>
+                  <th>Shift</th>
+                  <th>Exportation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <input type="date" class="form-control" [(ngModel)]="date" (change)="filterConsulterEffectif()" required />
+                  </td>
+                  <td>
+                    <select class="nice-select form-control" [(ngModel)]="shift" (change)="filterConsulterEffectif()" required>
+                      <option selected disabled>Sélectionnez le shift</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-hover mt-4">
+                <thead class="table-success">
+                <tr>
+                  <th>Projet</th>
+                  <th>Equipe</th>
+                  <th>Effectif</th>
+                  <th>Effectif Present</th>
+                  <th>Absence / Equipe</th>
+                  <th>Taux d'absence</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of data">
+                  <td>{{ item.projet }}</td>
+                  <td>{{ item.equipe }}</td>
+                  <td>{{ item.effectif }}</td>
+                  <td>{{ item.effectifPresent }}</td>
+                  <td>{{ item.absence }}</td>
+                  <td>{{ item.tauxAbsence }}</td>
+                </tr>
+                </tbody>
+                <tfoot id="filter_data">
+                <!-- Optional: additional footer if needed -->
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer can be included here -->
+    </div>
+  </div>
+</div>

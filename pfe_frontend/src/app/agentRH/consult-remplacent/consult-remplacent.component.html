@@ -1,0 +1,66 @@
+<div class="container-scroller">
+  <app-horizontal-menu-agent-rh></app-horizontal-menu-agent-rh>
+  <div class="container-fluid page-body-wrapper">
+    <app-vertical-menu-agent-rh></app-vertical-menu-agent-rh>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Consulter les remplacents</h4>
+              <p class="card-description">Consulter les remplacents des employés de la société dans notre système informatique.</p>
+              <table class="table table-borderless">
+                <thead class="table-success">
+                <tr>
+                  <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>
+                    <input type="date" class="form-control" [(ngModel)]="date" (change)="filterModifierRemplacentData()" required />
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <table class="table table-hover mt-4">
+                <thead class="table-success">
+                <tr>
+                  <th colspan="2">Employé</th>
+                  <th>Projet</th>
+                  <th>Équipe</th>
+                  <th>Poste</th>
+                  <th>Shift</th>
+                  <th>Numéro mobile</th>
+                  <th>Destination</th>
+                  <th>Date</th>
+                  <th colspan="2">Affectation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of replacementsData">
+                  <td>{{ item.employeName }}</td>
+                  <td>{{ item.employeSurname }}</td>
+                  <td>{{ item.projet }}</td>
+                  <td>{{ item.equipe }}</td>
+                  <td>{{ item.poste }}</td>
+                  <td>{{ item.shift }}</td>
+                  <td>{{ item.mobileNumber }}</td>
+                  <td>{{ item.destination }}</td>
+                  <td>{{ item.date }}</td>
+                  <td>{{ item.affectation }}</td>
+                  <td>{{ item.details }}</td>
+                </tr>
+                </tbody>
+                <tfoot id="filter_data">
+                <!-- Optional: additional footer if needed -->
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer can be included here -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container-scroller">
+  <app-horizontal-menu-agent-rh></app-horizontal-menu-agent-rh>
+  <div class="container-fluid page-body-wrapper">
+    <app-vertical-menu-agent-rh></app-vertical-menu-agent-rh>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="page-header">
+          <h3 class="page-title">
+            <span class="page-title-icon text-white me-2" style="background:#0b2e13">
+              <i class="mdi mdi-home"></i>
+            </span>
+            Accueil
+          </h3>
+          <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">
+                <span></span>Aujourd'hui {{ currentDate | date:'fullDate' }} <i class="mdi mdi-calendar icon-sm text-primary align-middle"></i>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+
+        <div class="input-i">
+          <i>
+            <input checked type="radio" name="s" style="background-image: url('assets/img/banniere/2016-essai-alfa-giulia-veloce-38.jpg');" >
+            <input type="radio" name="s" style="background-image: url('assets/img/banniere/Citroen-C3-essence-2024-bleu-essai-DR-46.jpg');" >
+            <input type="radio" name="s" style="background-image: url('assets/img/banniere/Citroen-e-c3-you-sieges.jpg');" >
+            <input type="radio" name="s" style="background-image: url('assets/img/banniere/fiat-pandina-2024-sieges-mk.jpg');" >
+            <input type="radio" name="s" style="background-image: url('assets/img/banniere/peugeot-2008-34.jpg');" >
+            <input type="radio" name="s" style="background-image: url('assets/img/banniere/S1-essai-xxl-peugeot-2008-tout-ce-qu-il-faut-savoir-636891.jpg');" >
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

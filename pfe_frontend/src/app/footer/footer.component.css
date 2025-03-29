@@ -1,0 +1,9 @@
+.footer {
+  border-top: 1px solid #e0e0e0; /* Subtle top border */
+  font-size: 0.9rem; /* Slightly smaller text for the footer */
+  color: #6c757d; /* Light muted color */
+}
+
+.footer b {
+  color: #343a40; /* Make the author name slightly more visible */
+}

@@ -1,0 +1,66 @@
+<nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+    <a class="navbar-brand brand-logo" routerLink="/home-rh">
+      <img src="assets/img/logos.png" alt="Logo" style="height: 50px; width: 160px; margin-top: 15px" />
+    </a>
+    <a class="navbar-brand brand-logo-mini" routerLink="/home-rh">
+      <img src="assets/img/logos.png" alt="Logo" style="height: 10px; width: 30px" />
+    </a>
+  </div>
+
+  <div class="navbar-menu-wrapper d-flex align-items-stretch">
+    <button class="navbar-toggler navbar-toggler align-self-center" type="button" (click)="toggleMenu()">
+      <span class="mdi mdi-menu"></span>
+    </button>
+
+    <div class="search-field d-none d-md-block">
+      <form class="d-flex align-items-center h-100" (submit)="onSearch()">
+        <div class="input-group">
+          <div class="input-group-prepend bg-transparent">
+            <i class="input-group-text border-0 mdi mdi-magnify"></i>
+          </div>
+          <input type="search" class="form-control bg-transparent border-0" placeholder="Rechercher.." [(ngModel)]="searchQuery" required>
+        </div>
+      </form>
+    </div>
+
+    <ul class="navbar-nav navbar-nav-right">
+      <!-- User Profile Dropdown -->
+      <li class="nav-item nav-profile dropdown">
+        <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="nav-profile-img">
+            <img src="assets/img/user.png" alt="User Image">
+            <span class="availability-status online"></span>
+          </div>
+          <div class="nav-profile-text">
+            <p class="mb-1 text-black">{{ userName }}</p>
+          </div>
+        </a>
+        <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown" (click)="logout()">
+          <a class="dropdown-item"  [routerLink]="['/modifier-profil']">
+            <i class="mdi mdi-account me-2 text-primary"></i>
+           modifier Profil
+          </a>
+        </div>
+      </li>
+
+      <!-- Fullscreen -->
+      <li class="nav-item d-none d-lg-block full-screen-link">
+        <a class="nav-link" (click)="toggleFullScreen()">
+          <i class="mdi mdi-fullscreen" id="fullscreen-button" style="cursor: pointer;"></i>
+        </a>
+      </li>
+
+      <!-- Logout -->
+      <li class="nav-item nav-logout d-none d-lg-block" (click)="logoutModal.open()">
+        <a class="nav-link">
+          <i class="mdi mdi-power"></i>
+        </a>
+      </li>
+    </ul>
+    <app-logout-confirm-dialog #logoutModal (logoutConfirmed)="logout()"></app-logout-confirm-dialog>
+    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" (click)="toggleOffcanvas()">
+      <span class="mdi mdi-menu"></span>
+    </button>
+  </div>
+</nav>
